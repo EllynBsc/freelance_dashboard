@@ -1,7 +1,35 @@
-<%= simple_form_for note do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.submit %>
-<% end %>
 
 
+<form class="simple_form new_note" id="new_note" novalidate="novalidate" action="/notes" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="C4T8bCuW3aempACS/makJczVCDCBNtgmdnXZpbH+Bf/BSh/wk/eWGXjdvH537TDXO19KlheH+o+CLrpzvArO0A==">
+  <div class="form-group string optional note_title">
+    <label class="string optional" for="note_title">Title</label>
+    <input class="form-control string optional" type="text" name="note[title]" id="editor"></div>
+  <div class="form-group text optional note_content">
+    <label class="text optional" for="note_content">Content</label>
+    <textarea class="form-control text optional" name="note[content]" id="editor"></textarea>
+  </div>
+
+  <input type="submit" name="commit" value="Create Note" data-disable-with="Create Note">
+</form>
+
+<div id="preview"></div>
+
+
+<style>
+  #preview, #editor {
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+#preview {
+  min-height: 100px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 6px 12px;
+  text-align: left;
+}
+
+#preview img {
+  max-width: 100%;
+}
+</style>
