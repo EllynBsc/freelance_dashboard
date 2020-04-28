@@ -1,0 +1,22 @@
+
+
+<h1>TO DO: Search Bar</h1>
+
+
+<div class="container text-center mt-4 mb-4 pt-4 pb-4">
+<h1>My potential missions</h1>
+<div class="row">
+<% @missions.each do |mission| %>
+  <div class="col-12 col-sm-4">
+    <div class="card mt-4" style="background:'white'">
+      <%= link_to mission_path(mission) do %>
+        <h1><%= mission.title %></h1>
+        <p>Company:<%= mission.company %></p>
+        <p>Location:<%= mission.location %></p>
+        <%= link_to 'delete', mission_path(mission), method: :delete, data: {confirm: 'are you sure?'}, class: 'btn btn-warning'  %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+</div>
+</div>
