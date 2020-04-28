@@ -1,0 +1,22 @@
+
+
+<h1>TO DO: Search Bar for notes </h1>
+
+
+<div class="container text-center mt-4 mb-4 pt-4 pb-4">
+<h1>My notes</h1>
+<div class="row">
+<% @notes.each do |note| %>
+  <div class="col-12 col-sm-4">
+    <div class="card mt-4" style="background:'white'">
+      <%= link_to note_path(note) do %>
+        <h1><%= note.title %></h1>
+        <p><%= note.content%></p>
+
+        <%= link_to 'delete', note_path(note), method: :delete, data: {confirm: 'are you sure?'}, class: 'btn btn-warning'  %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+</div>
+</div>
