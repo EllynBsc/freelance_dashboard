@@ -4,6 +4,10 @@
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.input :title %>
+     <%= f.simple_fields_for :taggings do |ff|  %>
+     <h1>hello</h1>
+     <%= ff.association :tag, collection: Tag.all %>
+    <% end %>
   <%= f.submit %>
 <% end %>
 
