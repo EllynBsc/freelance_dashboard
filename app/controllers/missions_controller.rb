@@ -1,11 +1,14 @@
 class MissionsController < ApplicationController
   def new
     @mission = Mission.new
+    @mission.taggings.build
   end
 
   def create
+    raise
     @mission = Mission.new(mission_params)
     @mission.user = current_user
+
     # raise
     if @mission.save
       redirect_to missions_path
