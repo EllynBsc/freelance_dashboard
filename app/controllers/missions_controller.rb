@@ -7,7 +7,7 @@ class MissionsController < ApplicationController
   def create
     @mission = Mission.new(mission_params)
     @mission.user = current_user
-
+    # raise
     if @mission.save
       redirect_to missions_path
     else
@@ -17,6 +17,7 @@ class MissionsController < ApplicationController
 
   def edit
     @mission = Mission.find(params[:id])
+    # @mission.taggings.build
   end
 
   def update
@@ -46,7 +47,7 @@ class MissionsController < ApplicationController
   private
 
   def mission_params
-    params.require(:mission).permit(:company, :location, :favorite, :start_date,:end_date, :status, :title, :taggings_attributes )
+    params.require(:mission).permit(:company, :location, :favorite, :start_date,:end_date, :status, :title, :taggings_attributes => [:id,:tag_id])
   end
 
 

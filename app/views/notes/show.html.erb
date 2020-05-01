@@ -3,7 +3,7 @@
 <h1><%= @note.title %></h1>
 <p><%= @note.content %></p>
 
-<%= @note.taggings.count %>
+
 <% @note.taggings.each do |tagging| %>
   <div class="btn btn-success"> <%= tagging.tag.name %></div>
 <% end %>

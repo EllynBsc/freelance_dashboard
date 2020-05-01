@@ -6,9 +6,8 @@
       <%= simple_form_for note do |f| %>
         <%= f.input :title %>
         <%= f.input :content %>
-
-           <%= f.simple_fields_for :taggings do |ff|  %>
-           <%= ff.association :tag, collection: Tag.all %>
+          <%= f.simple_fields_for :taggings do |ff|  %>
+            <%= ff.association :tag, collection: Tag.all %>
           <% end %>
         <%= f.submit class: 'btn btn-primary'%>
       <% end %>
