@@ -5,7 +5,6 @@ class MissionsController < ApplicationController
   end
 
   def create
-
     @mission = Mission.new(mission_params)
     @mission.user = current_user
 

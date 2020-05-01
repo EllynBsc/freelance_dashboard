@@ -1,12 +1,13 @@
 class NotesController < ApplicationController
  def new
     @note = Note.new
+    @note.taggings.build
   end
 
   def create
     @note = Note.new(note_params)
-    @note.user = current_user
     # raise
+    @note.user = current_user
     if @note.save
       redirect_to notes_path
     else
@@ -45,7 +46,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :content)
+    params.require(:note).permit(:title, :content, :taggings_attributes)
   end
 
 end
