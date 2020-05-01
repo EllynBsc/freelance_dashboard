@@ -1,2 +1,8 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="container text-center d-flex flex-column align-items-center mt-4 ">
+<h1>Freelance Dashboard Ninou</h1>
+
+    <%= link_to 'create a mission', new_mission_path, class: 'btn btn-primary mb-4' %>
+    <%= link_to 'create a note', new_note_path, class: 'btn btn-primary mb-4' %>
+    <%= link_to 'scrape remote missions', root_path, class: 'btn btn-danger mb-4'  %>
+</div>

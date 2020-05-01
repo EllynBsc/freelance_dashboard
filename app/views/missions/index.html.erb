@@ -13,6 +13,7 @@
         <h1><%= mission.title %></h1>
         <p>Company:<%= mission.company %></p>
         <p>Location:<%= mission.location %></p>
+
         <%= link_to 'delete', mission_path(mission), method: :delete, data: {confirm: 'are you sure?'}, class: 'btn btn-warning'  %>
       <% end %>
     </div>
