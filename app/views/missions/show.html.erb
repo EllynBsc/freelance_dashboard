@@ -1,10 +1,16 @@
 <h1>Missions#show</h1>
-<p>Find me in app/views/missions/show.html.erb</p>
+
 
 <%= @mission.company %>
 <%= @mission.location %>
 <%= @mission.start_date %>
 <%= @mission.end_date %>
+<% @mission.taggings.each do |tagging| %>
+  <div class="btn btn-success"> <%= tagging.tag.name %></div>
+<% end %>
 
-<%= link_to 'edit', edit_mission_path(@mission) %>
+<div class="container">
+<%= link_to 'edit', edit_mission_path(@mission), class: 'btn btn-primary' %>
 
+<%= link_to 'destroy', mission_path(@mission), method: :delete, class: 'btn btn-warning' %>
+</div>
