@@ -4,5 +4,10 @@
 <p><%= @note.content %></p>
 
 
+<% @note.taggings.each do |tagging| %>
+  <div class="btn btn-success"> <%= tagging.tag.name %></div>
+<% end %>
+
+
 <%= link_to 'edit', edit_note_path(@note) %>
 

@@ -5,6 +5,7 @@
 <%= @mission.location %>
 <%= @mission.start_date %>
 <%= @mission.end_date %>
+
 <% @mission.taggings.each do |tagging| %>
   <div class="btn btn-success"> <%= tagging.tag.name %></div>
 <% end %>
