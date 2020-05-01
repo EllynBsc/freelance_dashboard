@@ -1,3 +1,4 @@
+require 'open-uri'
 class NotesController < ApplicationController
  def new
     @note = Note.new
@@ -6,7 +7,6 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
-    # raise
     @note.user = current_user
     if @note.save
       redirect_to notes_path

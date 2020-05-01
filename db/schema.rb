@@ -17,11 +17,15 @@ ActiveRecord::Schema.define(version: 2020_04_28_162030) do
 
   create_table "missions", force: :cascade do |t|
     t.string "company"
+    t.datetime "publication_date"
     t.string "location"
+    t.string "description"
+    t.string "url"
+    t.string "salary"
     t.string "favorite"
-    t.string "start_date"
-    t.string "end_date"
-    t.string "status"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "status", default: "pending"
     t.string "title"
     t.bigint "user_id"
     t.datetime "created_at", null: false

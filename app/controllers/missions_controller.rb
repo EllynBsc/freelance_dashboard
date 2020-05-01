@@ -1,3 +1,5 @@
+
+# require 'open-uri'
 class MissionsController < ApplicationController
   def new
     @mission = Mission.new
@@ -7,7 +9,6 @@ class MissionsController < ApplicationController
   def create
     @mission = Mission.new(mission_params)
     @mission.user = current_user
-    # raise
     if @mission.save
       redirect_to missions_path
     else
@@ -17,7 +18,6 @@ class MissionsController < ApplicationController
 
   def edit
     @mission = Mission.find(params[:id])
-    # @mission.taggings.build
   end
 
   def update
@@ -37,7 +37,20 @@ class MissionsController < ApplicationController
   end
 
   def index
-    @missions = Mission.all
+    # url = open("https://remotive.io/api/remote-jobs").read
+    # @json_remotive =  JSON.parse(url)
+    # @count_jobs = @json_remotive["job_count"]
+
+    # @results = @json_remotive["jobs"].take(5).search do |job|
+    #   Mission.create!(title: job['title'], description: job["description"].text, company:  job['company_name'], location: job["candidate_required_location"], url: job["url"], salary: job["salary"], user: current_user)
+    #   # job['category']
+    #   # job['tags']
+    #   # job['job_type']
+    #   # job["publication_date"]
+
+    # end
+    @results = RemotiveService.new.call(current_user)
+    @missions = Mission.all.order(created_at: :asc)
   end
 
   def show
