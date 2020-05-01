@@ -3,31 +3,35 @@
 <h1>TO DO: Search Bar</h1>
 
 
-<%= @results.count %>
-<% @results.class %>
-
 <div class="container text-center mt-4 mb-4 pt-4 pb-4">
-<h1>My potential missions</h1>
-<div class="row">
-<% @missions.each do |mission| %>
-  <div class="col-12 col-sm-4">
-    <div class="card mt-4" style="background:'white'">
-      <%= link_to mission_path(mission) do %>
-        <h3><%= mission.title %></h3>
-        <p>Company:<%= mission.company %> </p>
-        <p>Location:<%= mission.location %></p>
-          <%= link_to url_for(mission.url) do %>
-           <i class="far fa-eye"></i>
-          <% end %>
+  <h1>My potential missions</h1>
+  <div class="row">
+    <% @missions.each do |mission| %>
+    <div class="col-12 col-sm-4">
+      <div class="card mt-4" style="background:'white'">
 
-        <p><%= mission.salary %></p>
+        <%= link_to mission_path(mission) do %>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= mission.title %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-building mr-2"></i><%= mission.company %></h6>
+            <p class="card-text"><i class="fas fa-map-signs mr-2"></i><%= mission.location %></p>
+            <p class="card-text"><i class="fas fa-dollar-sign mr-2"></i><%= mission.salary %></p>
+
+            <%= link_to url_for(mission.url), class: 'card-link' do %>
+             <i class="far fa-eye" style="font-size: 34px"></i>
+            <% end %>
+
+          </div>
+        </div>
 
         <%= link_to 'delete', mission_path(mission), method: :delete, data: {confirm: 'are you sure?'}, class: 'btn btn-warning'  %>
-      <% end %>
+        <% end %>
+      </div>
     </div>
+    <% end %>
   </div>
-<% end %>
 </div>
-</div>
+
 
 
