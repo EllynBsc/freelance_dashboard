@@ -29,3 +29,5 @@ puts "5.creating taggings"
 Tagging.create!(tag_id: Tag.last.id, taggable_id: Mission.last.id, taggable_type: 'Mission')
 
 puts "6.finished.."
+
+
