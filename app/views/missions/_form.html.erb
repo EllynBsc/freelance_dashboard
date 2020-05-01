@@ -1,13 +1,19 @@
-<%= simple_form_for mission do |f| %>
-  <%= f.input :company %>
-  <%= f.input :location %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :title %>
-     <%= f.simple_fields_for :taggings do |ff|  %>
-     <h1>hello</h1>
-     <%= ff.association :tag, collection: Tag.all %>
-    <% end %>
-  <%= f.submit %>
-<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-sm-3">
+      <%= simple_form_for mission do |f| %>
+        <%= f.input :company %>
+        <%= f.input :location %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.input :title %>
+           <%= f.simple_fields_for :taggings do |ff|  %>
+           <%= ff.association :tag, collection: Tag.all %>
+          <% end %>
+        <%= f.submit class: 'btn btn-primary'%>
+      <% end %>
+    </div>
+  </div>
+</div>
 
